@@ -2,9 +2,10 @@ package com.example.orirecipe;
 
 public class FoodData {
 
-    private String itemName, itemDesc, itemImage;
+    private String itemName, itemDesc, itemImage, itemId;
 
-    public FoodData(String itemName, String itemDesc, String itemImage) {
+    public FoodData(String itemId, String itemName, String itemDesc, String itemImage) {
+        this.itemId = itemId;
         this.itemName = itemName;
         this.itemDesc = itemDesc;
         this.itemImage = itemImage;
@@ -22,6 +23,10 @@ public class FoodData {
 
     public String getItemImage() {
         return itemImage;
+    }
+
+    public String getItemId() {
+        return itemId;
     }
 }
 
