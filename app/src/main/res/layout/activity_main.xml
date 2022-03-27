@@ -23,22 +23,22 @@
         android:scrollbars="vertical" />
 
     <LinearLayout
+        android:id="@+id/menuBar"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_alignParentBottom="true"
         android:background="@color/background"
-        android:weightSum="4"
         android:padding="5dp"
-        android:id="@+id/menuBar">
+        android:weightSum="4">
 
         <ImageButton
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:scaleType="fitCenter"
-            android:src="@drawable/recipe_upload"
             android:background="@null"
-            android:onClick="uploadRecipe"/>
+            android:onClick="uploadRecipe"
+            android:scaleType="fitCenter"
+            android:src="@drawable/recipe_upload" />
     </LinearLayout>
 
 
