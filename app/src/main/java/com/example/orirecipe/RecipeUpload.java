@@ -99,10 +99,9 @@ public class RecipeUpload extends AppCompatActivity {
     public void uploadRecipe(){
 
         String key = FirebaseDatabase.getInstance().getReference("Recipe").push().getKey();
-        String id = key;
 
         com.example.orirecipe.FoodData foodData = new com.example.orirecipe.FoodData(
-                id,
+                key,
                 txtName.getText().toString(),
                 txtDesc.getText().toString(),
                 imageUrl
