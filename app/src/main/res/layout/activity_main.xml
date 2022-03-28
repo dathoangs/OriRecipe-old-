@@ -36,7 +36,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@null"
-            android:id="@+id/uploadRecipe"
+            android:id="@+id/btnUpload"
             android:scaleType="fitCenter"
             android:src="@drawable/recipe_upload" />
 
@@ -45,7 +45,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@null"
-            android:id="@+id/user"
+            android:id="@+id/btnUser"
             android:scaleType="fitCenter"
             android:src="@drawable/user"/>
     </LinearLayout>

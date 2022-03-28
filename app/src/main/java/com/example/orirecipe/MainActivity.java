@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,10 +36,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     MyAdapter myAdapter;
     EditText etSearchText;
 
+    ImageButton btnAdd = (ImageButton) findViewById(R.id.btnUpload);
+    ImageButton btnUser = (ImageButton) findViewById(R.id.btnUser);
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        btnAdd.setOnClickListener(this);
+        btnUser.setOnClickListener(this);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(MainActivity.this, 1);
@@ -116,11 +125,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.uploadRecipe:{
+            case R.id.btnUpload:{
                 startActivity(new Intent(this, com.example.orirecipe.RecipeUpload.class));
             }
 
-            case R.id.user:{
+            case R.id.btnUser:{
                 startActivity(new Intent(this, com.example.orirecipe.DangNhapActivity.class));
             }
         }
