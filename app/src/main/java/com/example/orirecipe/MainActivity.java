@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             case R.id.btnUser:{
-                startActivity(new Intent(this, com.example.orirecipe.DangNhapActivity.class));
+                startActivity(new Intent(this, com.example.orirecipe.DangKyActivity.class));
                 break;
             }
         }
