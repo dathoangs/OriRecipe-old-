@@ -22,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     RecyclerView mRecyclerView;
     List <FoodData> mFoodList;
@@ -113,10 +113,17 @@ public class MainActivity extends AppCompatActivity {
         myAdapter.filteredList(filterList);
     }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.uploadRecipe:{
+                startActivity(new Intent(this, com.example.orirecipe.RecipeUpload.class));
+            }
 
-    public void uploadRecipe(View view) {
-
-        startActivity(new Intent(this, com.example.orirecipe.RecipeUpload.class));
+            case R.id.user:{
+                startActivity(new Intent(this, com.example.orirecipe.DangNhapActivity.class));
+            }
+        }
 
     }
 }

@@ -6,9 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".DangKyActivity"
     android:orientation="vertical"
-    android:background="@drawable/background2"
-
-    >
+    android:background="@drawable/background2">
 
 
     <TextView
@@ -35,7 +33,7 @@
             android:layout_margin="5dp">
 
             <EditText
-                android:id="@+id/edittextuser"
+                android:id="@+id/etuser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
@@ -44,7 +42,7 @@
                 android:textColorHint="#000" />
 
             <EditText
-                android:id="@+id/editmail"
+                android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nhập email"
@@ -53,7 +51,7 @@
 
                 tools:ignore="TouchTargetSizeCheck" />
             <EditText
-                android:id="@+id/editpassword"
+                android:id="@+id/etpassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
@@ -62,7 +60,7 @@
                 tools:ignore="TouchTargetSizeCheck" />
 
             <EditText
-                android:id="@+id/editpasswordcheck"
+                android:id="@+id/etpasswordcheck"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nhập lại mật khẩu"
@@ -75,7 +73,7 @@
 
 
     <Button
-        android:id="@+id/DkButton"
+        android:id="@+id/btnDk"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -88,10 +86,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:id="@+id/login">
 
         <TextView
-            android:id="@+id/edittext_desc"
+            android:id="@+id/et_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="26dp"
@@ -99,21 +98,16 @@
             android:text="Bạn đã có tài khoản? "
             android:backgroundTint="#FBFAD3"
             android:textColor="#000"
-            android:textSize="25sp"
-
-            />
+            android:textSize="25sp"/>
 
         <TextView
-            android:id="@+id/edittext_login"
+            android:id="@+id/et_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="26dp"
             android:gravity="center"
-            android:onClick="login"
             android:text="Đăng nhập"
             android:textColor="#FBFAD3"
-            android:textSize="25sp"
-
-            />
+            android:textSize="25sp"/>
     </LinearLayout>
 </LinearLayout>
