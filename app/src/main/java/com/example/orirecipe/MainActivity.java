@@ -126,10 +126,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()){
             case R.id.btnUpload:{
                 startActivity(new Intent(this, com.example.orirecipe.RecipeUpload.class));
+                break;
             }
 
             case R.id.btnUser:{
                 startActivity(new Intent(this, com.example.orirecipe.DangNhapActivity.class));
+                break;
             }
         }
 
