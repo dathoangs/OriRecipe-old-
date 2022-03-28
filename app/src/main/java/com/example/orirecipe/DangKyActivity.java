@@ -7,6 +7,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,6 +38,8 @@ public class DangKyActivity extends AppCompatActivity implements View.OnClickLis
         etPass_check = (EditText) findViewById(R.id.etpasswordcheck);
 
         btnDk = (Button) findViewById(R.id.btnDk);
+        btnDk.setOnClickListener(this);
+
         tvLogin = findViewById(R.id.login);
 
 
