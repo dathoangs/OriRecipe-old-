@@ -36,14 +36,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     MyAdapter myAdapter;
     EditText etSearchText;
 
-    ImageButton btnAdd = (ImageButton) findViewById(R.id.btnUpload);
-    ImageButton btnUser = (ImageButton) findViewById(R.id.btnUser);
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ImageButton btnAdd = (ImageButton) findViewById(R.id.btnUpload);
+        ImageButton btnUser = (ImageButton) findViewById(R.id.btnUser);
 
         btnAdd.setOnClickListener(this);
         btnUser.setOnClickListener(this);
