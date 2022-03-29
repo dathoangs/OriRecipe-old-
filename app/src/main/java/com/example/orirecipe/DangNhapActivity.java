@@ -12,9 +12,8 @@ public class DangNhapActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dang_nhap);
-
-
     }
+
     public void register(View view) {
         startActivity(new Intent(DangNhapActivity.this,DangKyActivity.class));
     }
