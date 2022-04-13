@@ -18,31 +18,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MyAdapter extends RecyclerView.Adapter<FoodViewHolder>{
+public class FavAdapter extends RecyclerView.Adapter<FavViewHolder>{
 
-    private Context mContext;
+    private Context favContext;
     private List<FoodData> mFoodList;
 
-    public MyAdapter(Context mContext, List<FoodData> mFoodList) {
-        this.mContext = mContext;
+    public FavAdapter(Context favContext, List<FoodData> mFoodList) {
+        this.favContext = favContext;
         this.mFoodList = mFoodList;
     }
 
     @NonNull
     @Override
-    public FoodViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public FavViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_row_item, parent, false);
+        View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.fav_recycler_row_item, parent, false);
 
-        return new FoodViewHolder(mView);
+        return new FavViewHolder(mView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FoodViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull FavViewHolder holder, int position) {
 
         System.out.println(holder.imageView);
 
-        Glide.with(mContext)
+        Glide.with(favContext)
                 .load(mFoodList.get(position).getItemImage())
                 .into(holder.imageView);
 
@@ -52,11 +52,10 @@ public class MyAdapter extends RecyclerView.Adapter<FoodViewHolder>{
         holder.mCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(mContext, com.example.orirecipe.DetailActivity.class);
+                Intent intent = new Intent(favContext, DetailActivity.class);
                 intent.putExtra("image", mFoodList.get(holder.getAdapterPosition()).getItemImage());
                 intent.putExtra("description", mFoodList.get(holder.getAdapterPosition()).getItemDesc());
-                intent.putExtra("id", mFoodList.get(holder.getAdapterPosition()).getItemId());
-                mContext.startActivity(intent);
+                favContext.startActivity(intent);
             }
         });
 
@@ -67,26 +66,21 @@ public class MyAdapter extends RecyclerView.Adapter<FoodViewHolder>{
         return mFoodList.size();
     }
 
-    public void filteredList(ArrayList<FoodData> filterList) {
-        mFoodList = filterList;
-        notifyDataSetChanged();
-    }
 }
 
-class FoodViewHolder extends RecyclerView.ViewHolder{
+class FavViewHolder extends RecyclerView.ViewHolder{
 
     ImageView imageView;
     TextView mTitle, mDesc;
     CardView mCardView;
 
-
-    public FoodViewHolder(@NonNull View itemView) {
+    public FavViewHolder(@NonNull View itemView) {
         super(itemView);
 
-        imageView = itemView.findViewById(R.id.ivImage);
-        mTitle = itemView.findViewById(R.id.tvTitle);
-        mDesc = itemView.findViewById(R.id.tvDesc);
+        imageView = itemView.findViewById(R.id.favImage);
+        mTitle = itemView.findViewById(R.id.favTitle);
+        mDesc = itemView.findViewById(R.id.favDesc);
 
-        mCardView = itemView.findViewById(R.id.myCardView);
+        mCardView = itemView.findViewById(R.id.favCardView);
     }
 }

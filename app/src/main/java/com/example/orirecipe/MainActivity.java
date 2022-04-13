@@ -2,6 +2,7 @@ package com.example.orirecipe;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     RecyclerView mRecyclerView;
     List <FoodData> mFoodList;
-    FoodData mFoodData;
+    //FoodData mFoodData;
     ProgressDialog progressDialog;
 
     private DatabaseReference databaseReference;
@@ -43,15 +44,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ImageButton btnAdd = (ImageButton) findViewById(R.id.btnUpload);
         ImageButton btnUser = (ImageButton) findViewById(R.id.btnUser);
+        ImageButton btnFav = (ImageButton) findViewById(R.id.btnFav);
 
         btnAdd.setOnClickListener(this);
         btnUser.setOnClickListener(this);
+        btnFav.setOnClickListener(this);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(MainActivity.this, 1);
         mRecyclerView.setLayoutManager(gridLayoutManager);
 
-        etSearchText = (EditText) findViewById(R.id.etSearchText);
+//        etSearchText = (EditText) findViewById(R.id.etSearchText);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Đang tải...");
@@ -89,37 +92,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        etSearchText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-                filter(editable.toString());
-
-            }
-        });
+//        etSearchText.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//
+//                filter(editable.toString());
+//
+//            }
+//        }); //watcher for search text
     }
-
-    public void filter(String string){
-        ArrayList<FoodData> filterList = new ArrayList<>();
-
-        for (FoodData item: mFoodList){
-            if (item.getItemName().toLowerCase().contains(string.toString())){
-                filterList.add(item);
-            }
-        }
-
-        myAdapter.filteredList(filterList);
-    }
+//
+//    public void filter(String string){
+//        ArrayList<FoodData> filterList = new ArrayList<>();
+//
+//        for (FoodData item: mFoodList){
+//            if (item.getItemName().toLowerCase().contains(string.toString())){
+//                filterList.add(item);
+//            }
+//        }
+//
+//        myAdapter.filteredList(filterList);
+//    } //filter for search text
 
     @Override
     public void onClick(View view) {
@@ -130,8 +133,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             case R.id.btnUser:{
-                startActivity(new Intent(this, com.example.orirecipe.DangKyActivity.class));
+                startActivity(new Intent(this, com.example.orirecipe.ProfileActivity.class));
                 break;
+            }
+
+            case R.id.btnFav:{
+                startActivity(new Intent(this, com.example.orirecipe.FavouriteRecipe.class));
             }
         }
 

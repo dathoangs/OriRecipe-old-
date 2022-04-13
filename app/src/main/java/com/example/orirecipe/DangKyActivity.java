@@ -19,6 +19,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class DangKyActivity extends AppCompatActivity implements View.OnClickListener {
@@ -126,10 +127,13 @@ public class DangKyActivity extends AppCompatActivity implements View.OnClickLis
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()){
-                            User user = new User(name, email);
+                            ArrayList <String> tmp = new ArrayList<>();
+                            tmp.add("10000000007");
+                            String id = FirebaseAuth.getInstance().getUid();
+                            User user = new User(id, name, email, tmp);
 
                             FirebaseDatabase.getInstance().getReference("Users")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .child(id)
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
@@ -138,6 +142,7 @@ public class DangKyActivity extends AppCompatActivity implements View.OnClickLis
                                                 "Đăng ký thành công",
                                                 Toast.LENGTH_LONG).show();
                                         progressDialog.dismiss();
+                                        finish();
                                     } else {
                                         Toast.makeText(DangKyActivity.this,
                                                 "Đăng ký không thành công!",

@@ -14,10 +14,25 @@
         android:src="@drawable/img"
         android:scaleType="centerCrop"/>
 
+<!--    <LinearLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_gravity="right"-->
+<!--        android:padding="10dp">-->
+
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Thêm vào Yêu Thích"-->
+<!--            android:textAlignment="center"-->
+<!--            android:id="@+id/btnAddFav"/>-->
+
+<!--    </LinearLayout>-->
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:padding="20dp"
         android:text="Description"
         android:textSize="19sp"
